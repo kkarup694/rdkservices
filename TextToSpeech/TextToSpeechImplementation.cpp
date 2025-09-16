@@ -453,7 +453,9 @@ namespace Plugin {
         if(status != TTS::TTS_OK)
             speechid = -1;
 
+#if TTS_TEXT_LOG
         TTSLOG_INFO("Speak invoked with text %s and speech id returned %d\n",text.c_str(),speechid);
+#endif
         logResponse(status);
         return (status == TTS::TTS_OK) ? (Core::ERROR_NONE) : (Core::ERROR_GENERAL);
     }
